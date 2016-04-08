@@ -4,13 +4,17 @@ A simple Elixir module that searches for beers on [Untappd](https://untappd.com/
 
 ## Installation
 
-Add `beersearch` in your mix.exs as a dependency:
+Add `beersearch` to your dependencies and application config in `mix.exs`:
 
 ```elixir
 defp deps do
   [
     {:beersearch, "~> 0.0.2"}
   ]
+end
+
+def application do
+  [applications: [:beersearch, :logger]]
 end
 ```
 
