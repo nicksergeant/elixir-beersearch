@@ -3,7 +3,7 @@ defmodule BeerSearch.Mixfile do
 
   def project do
     [app: :beersearch,
-     version: "0.0.1",
+     version: "0.0.2",
      description: "A simple Elixir module that searches for beers on Untappd.",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
