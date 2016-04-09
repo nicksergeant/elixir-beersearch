@@ -6,6 +6,17 @@ defmodule BeerSearch do
       |> ratings
   end
 
+  def main(args) do
+    case args do
+      [] -> IO.puts "No query provided. Do 'beersearch dogfish 60'."
+      _  ->
+        query = Enum.join args, " "
+        search(query)
+          |> Enum.join("\n")
+          |> IO.puts
+    end
+  end
+
   defp beers(response) do
     Floki.find(response, ".beer-item")
   end
