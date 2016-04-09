@@ -9,6 +9,7 @@ defmodule BeerSearch do
   defp beers(response) do
     Floki.find(response, ".beer-item")
   end
+
   defp ratings(beers) do
     Enum.map beers, fn(beer) ->
       name = Floki.find(beer, "p.name a") |> Floki.text
@@ -17,6 +18,7 @@ defmodule BeerSearch do
       "#{brewery} #{name} #{rating}"
     end
   end
+
   defp results(query) do
     query = URI.encode query
     HTTPotion.get("https://untappd.com/search?q=#{query}&type=beer&sort=").body
