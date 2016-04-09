@@ -10,8 +10,9 @@ defmodule BeerSearch do
     case args do
       [] -> IO.puts "No query provided. Do 'beersearch dogfish 60'."
       _  ->
-        query = Enum.join args, " "
-        search(query)
+        args
+          |> Enum.join(" ")
+          |> search
           |> Enum.join("\n")
           |> IO.puts
     end
@@ -31,7 +32,6 @@ defmodule BeerSearch do
   end
 
   defp results(query) do
-    query = URI.encode query
-    HTTPotion.get("https://untappd.com/search?q=#{query}&type=beer&sort=").body
+    HTTPotion.get("https://untappd.com/search?q=#{URI.encode(query)}&type=beer&sort=").body
   end
 end
