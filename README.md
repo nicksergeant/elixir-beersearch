@@ -2,7 +2,13 @@
 
 A simple Elixir module that searches for beers on [Untappd](https://untappd.com/).
 
-## Installation
+## CLI installation
+
+1. `brew install erlang`
+2. `git clone https://github.com/nicksergeant/elixir-beersearch.git`
+3. `ln -s $PWD/elixir-beersearch/beersearch /usr/local/bin/beersearch`
+
+## Installation as a module
 
 Add `beersearch` to your dependencies and application config in `mix.exs`:
 
