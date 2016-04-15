@@ -24,10 +24,46 @@ defmodule BeerSearch do
 
   defp ratings(beers) do
     Enum.map beers, fn(beer) ->
-      name = Floki.find(beer, "p.name a") |> Floki.text
-      brewery = Floki.find(beer, "p.brewery a") |> Floki.text
-      rating = Floki.find(beer, "p.rating span.num") |> Floki.text
-      "#{brewery} #{name} #{rating}"
+      abv = Floki.find(beer, "p.abv")
+        |> Floki.text
+        |> String.strip
+
+      brewery = Floki.find(beer, "p.brewery a")
+        |> Floki.text
+
+      ibu = Floki.find(beer, "p.ibu")
+        |> Floki.text
+        |> String.strip
+
+      image = Floki.find(beer, "a.label img")
+        |> Floki.attribute("src")
+        |> hd
+
+      name = Floki.find(beer, "p.name a")
+        |> Floki.text
+
+      url = Floki.find(beer, "p.name a")
+        |> Floki.attribute("href")
+        |> (&("https://untappd.com#{&1}")).()
+
+      rating = Floki.find(beer, "p.rating span.num")
+        |> Floki.text
+        |> String.replace("(", "")
+        |> String.replace(")", "")
+
+      style = Floki.find(beer, "p.style")
+        |> Floki.text
+
+      %{
+        abv: abv,
+        name: name,
+        brewery: brewery,
+        ibu: ibu,
+        image: image,
+        rating: rating,
+        style: style,
+        url: url,
+      }
     end
   end
 
