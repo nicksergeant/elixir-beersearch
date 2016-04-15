@@ -13,6 +13,10 @@ defmodule BeerSearch do
         args
           |> Enum.join(" ")
           |> search
+          |> Enum.map(fn item -> """
+            #{item[:brewery]} #{item[:name]} (#{item[:rating]})
+            #{item[:url]}
+            """ end)
           |> Enum.join("\n")
           |> IO.puts
     end
