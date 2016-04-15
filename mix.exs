@@ -15,7 +15,7 @@ defmodule BeerSearch.Mixfile do
      maintainers: ["Nick Sergeant"],
      package: package,
      start_permanent: Mix.env == :prod,
-     version: "0.0.5"]
+     version: "0.0.6"]
   end
 
   def application do
