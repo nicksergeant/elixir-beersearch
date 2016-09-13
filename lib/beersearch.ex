@@ -35,6 +35,9 @@ defmodule BeerSearch do
       brewery = Floki.find(beer, "p.brewery a")
         |> Floki.text
 
+      brewery_url = Floki.find(beer, "p.brewery a")
+        |> Floki.attribute("href")
+
       ibu = Floki.find(beer, "p.ibu")
         |> Floki.text
         |> String.strip
@@ -62,6 +65,7 @@ defmodule BeerSearch do
         abv: abv,
         name: name,
         brewery: brewery,
+        brewery_url: "https://untappd.com#{brewery_url}",
         ibu: ibu,
         image: image,
         rating: rating,
