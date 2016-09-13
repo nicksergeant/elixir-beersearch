@@ -16,7 +16,7 @@ Add `beersearch` to your dependencies and application config in `mix.exs`:
 ```elixir
 defp deps do
   [
-    {:beersearch, "~> 0.0.2"}
+    {:beersearch, "~> 0.0.7"}
   ]
 end
 

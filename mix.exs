@@ -15,7 +15,7 @@ defmodule BeerSearch.Mixfile do
      maintainers: ["Nick Sergeant"],
      package: package,
      start_permanent: Mix.env == :prod,
-     version: "0.0.6"]
+     version: "0.0.7"]
   end
 
   def application do
@@ -24,8 +24,8 @@ defmodule BeerSearch.Mixfile do
 
   defp deps do
     [
-      {:floki, "~> 0.8"},
-      {:httpotion, "~> 2.2.0"}
+      {:floki, "~> 0.10.1"},
+      {:httpotion, "~> 3.0.0"}
     ]
   end
 
