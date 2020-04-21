@@ -26,7 +26,7 @@ defmodule BeerSearch.Mixfile do
     [
       {:ex_doc, ">= 0.0.0", only: :dev},
       {:floki, "~> 0.10.1"},
-      {:httpotion, "~> 3.0.0"}
+      {:httpotion, "~> 3.1.0"}
     ]
   end
 
